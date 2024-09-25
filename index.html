@@ -1,11 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
 <head>
-    <title>Ma Page Personnelle</title>
-    <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vexato - Page Personnelle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Loader Animation */
+        #loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e3a8a;
+        }
+
+        .loader-circle {
+            border: 8px solid #ffffff;
+            border-top: 8px solid #00c4cc;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Intro Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Apply animations */
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideInUp 1.2s ease-out forwards;
+        }
+
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+
+        /* Hover Effects */
+        .hover-effect {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .wave {
+            position: relative;
+            width: 100%;
+            height: 150px;
+        }
+
+        .wave svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-    <h1 class="text-4xl font-bold">Bienvenue sur ma page personnelle!</h1>
-    <p class="text-lg">Je suis vexato et je suis ravi de vous accueillir ici.</p>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-blue-500">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Page content -->
+    <div id="content" class="hidden">
+
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-8 shadow-lg animate-slide-up">
+            <div class="container mx-auto text-center">
+                <h1 class="text-5xl font-extrabold animate-bounce">Salut ! Je suis Vexato 👋</h1>
+                <p class="text-xl mt-2 animate-fade-in">Passionné par la programmation et le développement web.</p>
+            </div>
+        </header>
+
+        <!-- Introduction -->
+        <section class="py-12">
+            <div class="container mx-auto text-center animate-slide-up">
+                <p class="text-2xl">Bienvenue sur ma page personnelle ! Je m'appelle <span class="font-bold">Vexato</span> et j'ai 16 ans.</p>
+                <p class="text-xl mt-2">Voici un aperçu de mes compétences et projets récents.</p>
+            </div>
+        </section>
+
+        <!-- Compétences avec icônes -->
+        <section class="bg-gray-200 py-12">
+            <div class="container mx-auto animate-slide-up">
+                <h2 class="text-4xl font-extrabold text-center mb-10">🎯 Compétences</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+                    <!-- HTML -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <i class="fab fa-html5 text-orange-500 text-6xl"></i>
+                        <h3 class="text-xl font-bold mt-4">HTML</h3>
+                        <p class="mt-2">Maîtrise des bases de la structure web.</p>
+                    </div>
+                    <!-- CSS -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <i class="fab fa-css3-alt text-blue-600 text-6xl"></i>
+                        <h3 class="text-xl font-bold mt-4">CSS</h3>
+                        <p class="mt-2">Création de styles élégants et responsives.</p>
+                    </div>
+                    <!-- Tailwind CSS -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <i class="fab fa-css3-alt text-teal-500 text-6xl"></i>
+                        <h3 class="text-xl font-bold mt-4">Tailwind CSS</h3>
+                        <p class="mt-2">Designs modernes et rapides.</p>
+                    </div>
+                    <!-- Vue.js -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <i class="fab fa-vuejs text-green-500 text-6xl"></i>
+                        <h3 class="text-xl font-bold mt-4">Vue.js</h3>
+                        <p class="mt-2">Développement d'applications web interactives.</p>
+                    </div>
+                    <!-- Nuxt.js -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <i class="fas fa-server text-purple-600 text-6xl"></i>
+                        <h3 class="text-xl font-bold mt-4">Nuxt.js</h3>
+                        <p class="mt-2">Applications performantes avec SSR, SSG et SPA.</p>
+                    </div>
+                    <!-- Python -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <i class="fab fa-python text-yellow-500 text-6xl"></i>
+                        <h3 class="text-xl font-bold mt-4">Python</h3>
+                        <p class="mt-2">Programmation pour divers projets et automatisations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projets Récents -->
+        <section class="py-12">
+            <div class="container mx-auto animate-slide-up">
+                <h2 class="text-4xl font-extrabold text-center mb-10">🚀 Projets Récents</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <h3 class="text-xl font-bold mb-2"><a href="https://spendguard.live" class="text-blue-600 underline">SpendGuard</a></h3>
+                        <p>Suivez et tracker vos dépenses.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <h3 class="text-xl font-bold mb-2"><a href="https://discord.gg/b9J862Khcm" class="text-blue-600 underline">Rp-nations Discord</a></h3>
+                        <p>Simulation de relations diplomatiques.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover-effect">
+                        <h3 class="text-xl font-bold mb-2"><a href="https://market.azuriom.com/resources/148" class="text-blue-600 underline">Skin3D Viewer</a></h3>
+                        <p>Extension pour Azuriom permettant de voir des skins en 3D.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Me Contacter -->
+        <section class="bg-gray-200 py-12">
+            <div class="container mx-auto text-center animate-slide-up">
+                <h2 class="text-4xl font-extrabold mb-10">📬 Me Contacter</h2>
+                <p class="text-xl">Vous pouvez me contacter via Discord : <a href="https://discord.com/users/vexato" class="text-blue-600 underline">vexato</a></p>
+                <img src="https://discord.c99.nl/widget/theme-2/937352018526347284.png" alt="Discord Badge" class="mx-auto mt-4">
+            </div>
+        </section>
+
+        <!-- Statistiques GitHub -->
+        <section class="py-12">
+            <div class="container mx-auto text-center animate-slide-up">
+                <h2 class="text-4xl font-extrabold mb-10">📈 Statistiques GitHub</h2>
+                <img src="https://github-readme-stats.vercel.app/api?username=vexato&show_icons=true&hide_title=true&count_private=true&hide=prs" alt="Statistiques GitHub" class="mx-auto">
+                <img src="https://wakatime.com/share/@74b92aa1-c514-4135-9d81-1008e8a13e79/c90a020f-9e8d-46f9-a3c6-f5fa7e8709ac.png" alt="Statistiques Wakatime" class="mx-auto mt-6">
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-6 text-center animate-slide-up">
+            <p class="text-lg">Merci de visiter mon profil ! Je suis toujours ouvert aux nouvelles opportunités et collaborations 🚀</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript pour loader -->
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('content').classList.remove('hidden');
+                document.getElementById('content').classList.add('animate-fade-in');
+            }, 2000); 
+        }
+    </script>
 </body>
+
 </html>
